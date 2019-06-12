@@ -1,0 +1,16 @@
+
+    {
+        "name": "python2-pygame",
+        "buildsystem": "simple",
+        "build-commands": [
+            "pip2 install --no-index --find-links=\"file://${PWD}\" --install-option=\"--prefix=${FLATPAK_DEST}\" pygame"
+        ],
+        "sources": [
+            {
+                "type": "file",
+                "url": "https://www.pygame.org/ftp/pygame-1.9.6.tar.gz",
+                "sha512": "d923c554203a7c35e37921658cb4c5bf50215ab0ff4d2b869a1ee6b2e2ca31d66ec4bbde4287f5a777838ffe932cd15b993cb0224b86e43d684de61c35acbcd0"
+            }
+        ]
+    }
+

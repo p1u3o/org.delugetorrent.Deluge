@@ -1,0 +1,50 @@
+{
+    "app-id": "org.delugetorrent.Deluge",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "3.32",
+    "branch": "stable",
+    "sdk": "org.gnome.Sdk",
+    "command": "/app/bin/deluge",
+    "tags": [],
+
+    "finish-args": [
+        "--share=ipc", 
+        "--socket=x11",
+        "--socket=wayland",
+        "--share=network",
+        "--filesystem=xdg-download",
+        "--filesystem=xdg-document",
+        "--talk-name=org.freedesktop.Notifications",
+        "--env=PYTHONPATH=/app/lib/python2.7/site-packages/"
+    ],
+    "modules": [  
+      "shared-modules/python2.7/python-2.7.json",
+      "modules/libtorrent-rasterbar.json",
+      {
+        "name": "deluge",
+        "buildsystem": "simple",
+        "build-commands": [
+          "mkdir -p /app/lib/python2.7/site-packages/",
+          "pip install twisted[tls] chardet mako pyxdg pillow slimit pygame certifi pygobject",
+          "python setup.py build",
+          "python setup.py install --prefix=/app",
+          "python setup.py install_data"
+        ],
+        "build-options": {
+           "env": {
+              "PYTHONPATH": "/app/lib/python2.7/site-packages/"
+           },
+        	"build-args": [ 
+            "--share=network"
+           ]
+        },
+        "sources": [
+          {
+            "type": "git",
+            "url": "git://deluge-torrent.org/deluge.git",
+            "branch": "deluge-2.0.3"
+          }
+        ]
+      }
+    ]
+}
