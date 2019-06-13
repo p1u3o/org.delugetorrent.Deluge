@@ -44,7 +44,6 @@
         "/lib/python2.7/site-packages/pygame/examples",
         "/lib/python2.7/site-packages/twisted/tests",
         "/lib/python2.7/site-packages/twisted/test",
-        "/lib/python2.7/site-packages/pip",
         "/lib/python2.7/site-packages/setuptools",
         "/lib/python2.7/site-packages/docutils"
     ],
