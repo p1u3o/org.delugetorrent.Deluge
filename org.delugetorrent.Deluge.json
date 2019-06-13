@@ -18,6 +18,7 @@
         "--own-name=org.deluge_torrent.Deluge",
         "--talk-name=org.freedesktop.Notifications",
         "--talk-name=org.kde.StatusNotifierWatcher",
+        "--talk-name=org.freedesktop.FileManager1",
         "--filesystem=home",
         "--filesystem=~/.config/dconf:ro",
         "--filesystem=xdg-run/dconf",
@@ -37,7 +38,15 @@
         "/share/vala",
         "/lib/systemd",
         "*.la",
-        "*.a"
+        "*.a",
+        "/lib/python2.7/site-packages/pygame/docs",
+        "/lib/python2.7/site-packages/pygame/tests",
+        "/lib/python2.7/site-packages/pygame/examples",
+        "/lib/python2.7/site-packages/twisted/tests",
+        "/lib/python2.7/site-packages/twisted/test",
+        "/lib/python2.7/site-packages/pip",
+        "/lib/python2.7/site-packages/setuptools",
+        "/lib/python2.7/site-packages/docutils"
     ],
     "modules": [
         "shared-modules/python2.7/python-2.7.json",
@@ -48,6 +57,7 @@
         "modules/zlib.json",
         "modules/libjpeg.json",
         "modules/libpng.json",
+        "modules/geoip.json",
         "org.delugetorrent.Deluge.pipdeps.json",
         {
             "name": "deluge",
@@ -68,8 +78,27 @@
                     "type": "git",
                     "url": "git://deluge-torrent.org/deluge.git",
                     "branch": "deluge-2.0.3"
+                },
+                {
+                    "type": "patch",
+                    "path": "patches/pref.patch"
                 }
             ]
+        },
+        {
+            "name": "maxmind",
+            "buildsystem": "simple",      
+            "build-commands": [
+              "gunzip maxmind.dat.gz",
+              "install -Dm644 maxmind.dat /app/lib/GeoIP/GeoIP.dat"
+            ],
+            "sources": [
+              {
+                  "type": "file",
+                  "url": "https://dl.miyuru.lk/geoip/maxmind/country/maxmind.dat.gz",
+                  "sha256": "6e787f58ba5b0573a3c3ab3ee4e4ad3d2003f9522ef19744cb65c8382a3e8404"
+              } 
+           ]   
         }
     ]
 }
