@@ -1,6 +1,5 @@
 {
   "name": "boost",
-  "disabled": false,
   "buildsystem": "autotools",
   "sources": [
     {

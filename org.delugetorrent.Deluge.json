@@ -20,22 +20,29 @@
         "--filesystem=home",
         "--talk-name=org.freedesktop.Notifications",
         "--own-name=org.deluge_torrent.Deluge",
-        "--env=PYTHONPATH=/app/lib/python2.7/site-packages/"
+        "--env=PYTHONPATH=/app/lib/python2.7/site-packages"
     ],
     "cleanup":[  
         "/include"
     ],
-    "modules":[  
-        "shared-modules/python2.7/python-2.7.json",
+    "modules":[ 
+        /* Build big things first */
+        "shared-modules/python2.7/python-2.7.json", 
+        "modules/boost.json",
         "modules/libtorrent-rasterbar.json",
+        "shared-modules/libappindicator/libappindicator-gtk3-12.10.json",
+        "modules/pygame-2.7/pygame-1.9.4.json",
+        "modules/zlib.json",
+        "modules/libjpeg.json",
+        "modules/libpng.json",
+        "org.delugetorrent.Deluge.pipdeps.json",
         {  
             "name":"deluge",
             "buildsystem":"simple",
             "build-commands":[  
-                "mkdir -p /app/lib/python2.7/site-packages/",
-                "pip install twisted[tls] chardet mako pyxdg pillow slimit pygame certifi pygobject",
-                "python setup.py build",
-                "python setup.py install --prefix=/app",
+                "mkdir -p /app/lib/python2.7/site-packages",
+                "./setup.py build ",
+                "python setup.py install --prefix=${FLATPAK_DEST}",
                 "python setup.py install_data"
             ],
             "build-options":{  
@@ -43,7 +50,7 @@
                     "PYTHONPATH":"/app/lib/python2.7/site-packages/"
                 },
                 "build-args":[  
-                    "--share=network"
+
                 ]
             },
             "sources":[  

@@ -1,6 +1,5 @@
 {
   "name": "libtorrent-rasterbar",
-  "disabled": false,
   "buildsystem": "autotools",
   "config-opts": [
     "--disable-static",
@@ -22,10 +21,5 @@
         "./autotool.sh"
       ]
     }
-  ],
-  "modules": [
-    "boost.json",
-    "openssl.json",
-    "zlib.json"
   ]
 }
