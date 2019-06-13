@@ -1,0 +1,22 @@
+diff --git a/deluge/core/preferencesmanager.py b/deluge/core/preferencesmanager.py
+index db9556acc..359da3c32 100644
+--- a/deluge/core/preferencesmanager.py
++++ b/deluge/core/preferencesmanager.py
+@@ -106,7 +106,7 @@
+     'path_chooser_accelerator_string': 'Tab',
+     'path_chooser_max_popup_rows': 20,
+     'path_chooser_show_hidden_files': False,
+-    'new_release_check': True,
++    'new_release_check': False,
+     'proxy': {
+         'type': 0,
+         'hostname': '',
+@@ -121,7 +121,7 @@
+     },
+     'peer_tos': '0x00',
+     'rate_limit_ip_overhead': True,
+-    'geoip_db_location': '/usr/share/GeoIP/GeoIP.dat',
++    'geoip_db_location': '/app/lib/GeoIP/db.dat',
+     'cache_size': 512,
+     'cache_expiry': 60,
+     'auto_manage_prefer_seeds': False,

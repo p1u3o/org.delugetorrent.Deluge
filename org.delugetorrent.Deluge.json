@@ -1,33 +1,46 @@
-{  
-    "app-id":"org.delugetorrent.Deluge",
-    "runtime":"org.gnome.Platform",
-    "runtime-version":"3.32",
-    "branch":"stable",
-    "sdk":"org.gnome.Sdk",
-    "command":"/app/bin/deluge",
-    "tags":[  
-
-    ],
-    "rename-desktop-file":"deluge.desktop",
-    "rename-icon":"deluge",
-    "rename-appdata-file":"deluge.appdata.xml",
-    "copy-icon":true,
-    "finish-args":[  
+{
+    "app-id": "org.delugetorrent.Deluge",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "3.32",
+    "branch": "stable",
+    "sdk": "org.gnome.Sdk",
+    "command": "/app/bin/deluge",
+    "tags": [],
+    "rename-desktop-file": "deluge.desktop",
+    "rename-icon": "deluge",
+    "rename-appdata-file": "deluge.appdata.xml",
+    "copy-icon": true,
+    "finish-args": [
         "--share=ipc",
         "--socket=x11",
         "--socket=wayland",
         "--share=network",
-        "--filesystem=home",
-        "--talk-name=org.freedesktop.Notifications",
         "--own-name=org.deluge_torrent.Deluge",
+        "--talk-name=org.freedesktop.Notifications",
+        "--talk-name=org.kde.StatusNotifierWatcher",
+        "--filesystem=home",
+        "--filesystem=~/.config/dconf:ro",
+        "--filesystem=xdg-run/dconf",
         "--env=PYTHONPATH=/app/lib/python2.7/site-packages"
     ],
-    "cleanup":[  
-        "/include"
+    "cleanup": [
+        "/cache",
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/aclocal",
+        "/share/devhelp",
+        "/share/gir-1.0",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "/share/vala",
+        "/lib/systemd",
+        "*.la",
+        "*.a"
     ],
-    "modules":[ 
-        /* Build big things first */
-        "shared-modules/python2.7/python-2.7.json", 
+    "modules": [
+        "shared-modules/python2.7/python-2.7.json",
         "modules/boost.json",
         "modules/libtorrent-rasterbar.json",
         "shared-modules/libappindicator/libappindicator-gtk3-12.10.json",
@@ -36,28 +49,25 @@
         "modules/libjpeg.json",
         "modules/libpng.json",
         "org.delugetorrent.Deluge.pipdeps.json",
-        {  
-            "name":"deluge",
-            "buildsystem":"simple",
-            "build-commands":[  
+        {
+            "name": "deluge",
+            "buildsystem": "simple",
+            "build-commands": [
                 "mkdir -p /app/lib/python2.7/site-packages",
                 "./setup.py build ",
-                "python setup.py install --prefix=${FLATPAK_DEST}",
-                "python setup.py install_data"
+                "./setup.py install --prefix=${FLATPAK_DEST}",
+                "./setup.py install_data"
             ],
-            "build-options":{  
-                "env":{  
-                    "PYTHONPATH":"/app/lib/python2.7/site-packages/"
-                },
-                "build-args":[  
-
-                ]
+            "build-options": {
+                "env": {
+                    "PYTHONPATH": "/app/lib/python2.7/site-packages/"
+                }
             },
-            "sources":[  
-                {  
-                    "type":"git",
-                    "url":"git://deluge-torrent.org/deluge.git",
-                    "branch":"deluge-2.0.3"
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "git://deluge-torrent.org/deluge.git",
+                    "branch": "deluge-2.0.3"
                 }
             ]
         }
