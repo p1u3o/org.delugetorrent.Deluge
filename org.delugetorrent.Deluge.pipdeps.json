@@ -2,8 +2,8 @@
     "name":"pipdeps",
     "buildsystem":"simple",
     "build-commands":[  
-        "pip2 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} wheel pygobject incremental chardet mako pyxdg pillow m2r slimit certifi setuptools setuptools-scm",
-        "pip2 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} zope.interface pyopenssl setproctitle rencode pyasn1 python-geoip twisted[tls]"
+        "pip2 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --no-compile wheel pygobject incremental chardet mako pyxdg pillow m2r slimit certifi setuptools setuptools-scm",
+        "pip2 install --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} --no-compile zope.interface pyopenssl setproctitle rencode pyasn1 python-geoip twisted[tls]"
     ],
     "sources":[  
         {  
@@ -266,5 +266,6 @@
             "url":"https://files.pythonhosted.org/packages/7c/65/cb04188154f7626e897d55f04c2542ba4205352f158cd925d314ad1998ef/python-geoip-1.2.tar.gz",
             "sha256":"b7b11dab42bffba56943b3199e3441f41cea145244d215844ecb6de3d5fb2df5"
         }
+
     ]
 }

@@ -21,13 +21,13 @@
         "--talk-name=org.freedesktop.FileManager1",
         "--filesystem=home",
         "--filesystem=~/.config/dconf:ro",
-        "--filesystem=xdg-run/dconf",
-        "--env=PYTHONPATH=/app/lib/python2.7/site-packages"
+        "--filesystem=xdg-run/dconf"
     ],
     "cleanup": [
         "/cache",
         "/include",
         "/lib/pkgconfig",
+        "/lib/debug",
         "/man",
         "/share/aclocal",
         "/share/devhelp",
@@ -62,14 +62,13 @@
             "name": "deluge",
             "buildsystem": "simple",
             "build-commands": [
-                "mkdir -p /app/lib/python2.7/site-packages",
                 "./setup.py build ",
                 "./setup.py install --prefix=${FLATPAK_DEST}",
                 "./setup.py install_data"
             ],
             "build-options": {
                 "env": {
-                    "PYTHONPATH": "/app/lib/python2.7/site-packages/"
+                    "PYTHONPATH": "/app/lib/python2.7"
                 }
             },
             "sources": [
