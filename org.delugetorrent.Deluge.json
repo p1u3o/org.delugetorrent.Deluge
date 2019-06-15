@@ -2,7 +2,6 @@
     "app-id": "org.delugetorrent.Deluge",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.32",
-    "branch": "stable",
     "sdk": "org.gnome.Sdk",
     "command": "/app/bin/deluge",
     "tags": [],
@@ -63,7 +62,9 @@
             "build-commands": [
                 "./setup.py build ",
                 "./setup.py install --prefix=${FLATPAK_DEST}",
-                "./setup.py install_data"
+                "./setup.py install_data",
+                "install -Dm644 org.delugetorrent.Deluge.appdata.xml /app/share/metainfo/org.delugetorrent.Deluge.appdata.xml"
+
             ],
             "build-options": {
                 "env": {
@@ -75,6 +76,10 @@
                     "type": "git",
                     "url": "git://deluge-torrent.org/deluge.git",
                     "tag": "deluge-2.0.3"
+                },
+                {
+                    "type": "file",
+                    "path": "org.delugetorrent.Deluge.appdata.xml"
                 }
             ]
         }
