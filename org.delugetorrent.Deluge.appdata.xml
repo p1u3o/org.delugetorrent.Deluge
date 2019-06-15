@@ -23,5 +23,27 @@
       <image>https://upload.wikimedia.org/wikipedia/commons/5/50/Deluge-torrent.png</image>
     </screenshot>
   </screenshots>
+  <releases>
+        <release version="2.0.3" date="2019-06-12">
+            <description>
+                <ul>
+                  <li>Gtk UI</li>
+                  <li>  - Fix errors running on Wayland (#3265).</li>
+                  <li>  - Fix Peers Tab tooltip and context menu errors (#3266).</li>
+                  <li>Web UI</li>
+                  <li>  - Fix TypeError in Peers Tab setting country flag.</li>
+                  <li>  - Fix reverse proxy header TypeError (#3260).</li>
+                  <li>  - Fix request.base 'idna' codec error (#3261).</li>
+                  <li>  - Fix unable to change password (#3262).</li>
+                  <li>Extractor plugin</li>
+                  <li>  - Fix potential error starting plugin.</li>
+                  <li>Documentation</li>
+                  <li>  - Fix macOS install typo.</li>
+                  <li>  - Fix Windows install instructions.</li>
+               <ul>
+          </description> 
+      </release>
+  </releases>
   <launchable type="desktop-id">org.delugetorrent.Deluge.desktop</launchable>
+  <content_rating type="oars-1.1" />
 </component>

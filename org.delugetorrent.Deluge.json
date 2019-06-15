@@ -8,7 +8,6 @@
     "tags": [],
     "rename-desktop-file": "deluge.desktop",
     "rename-icon": "deluge",
-    "rename-appdata-file": "deluge.appdata.xml",
     "copy-icon": true,
     "finish-args": [
         "--share=ipc",
@@ -75,28 +74,9 @@
                 {
                     "type": "git",
                     "url": "git://deluge-torrent.org/deluge.git",
-                    "branch": "deluge-2.0.3"
-                },
-                {
-                    "type": "patch",
-                    "path": "patches/pref.patch"
+                    "tag": "deluge-2.0.3"
                 }
             ]
-        },
-        {
-            "name": "maxmind",
-            "buildsystem": "simple",      
-            "build-commands": [
-              "gunzip maxmind.dat.gz",
-              "install -Dm644 maxmind.dat /app/lib/GeoIP/GeoIP.dat"
-            ],
-            "sources": [
-              {
-                  "type": "file",
-                  "url": "https://dl.miyuru.lk/geoip/maxmind/country/maxmind.dat.gz",
-                  "sha256": "6e787f58ba5b0573a3c3ab3ee4e4ad3d2003f9522ef19744cb65c8382a3e8404"
-              } 
-           ]   
         }
     ]
 }
