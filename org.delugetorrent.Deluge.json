@@ -40,10 +40,7 @@
         "/lib/python2.7/site-packages/pygame/docs",
         "/lib/python2.7/site-packages/pygame/tests",
         "/lib/python2.7/site-packages/pygame/examples",
-        "/lib/python2.7/site-packages/twisted/tests",
-        "/lib/python2.7/site-packages/twisted/test",
-        "/lib/python2.7/site-packages/setuptools",
-        "/lib/python2.7/site-packages/docutils"
+        "/lib/python2.7/site-packages/twisted/tests"
     ],
     "modules": [
         "shared-modules/python2.7/python-2.7.json",
